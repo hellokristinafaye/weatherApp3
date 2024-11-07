@@ -1,3 +1,4 @@
+// comment for dev branch commit
 const apiKey = "2bd5559124f13def23addea6864b8f2c";
 const apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
 // These came from the Open Weather API website. I signed up for a free account that includes a unique API key and access to their URLs.  I think this is the same one from 2 years ago, so I don't think these expire.  But if they do, on their website it had a really easy generate button.  
