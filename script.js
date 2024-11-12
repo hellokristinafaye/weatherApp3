@@ -13,20 +13,20 @@ const weatherIcon = document.querySelector(".weather-icon");
 
 // for adding to local storage, setItem method accepts these two parameters: which key to set the value of ('notes') and what to set in that value (notesContainer.innerHTML, which is the contents of the Notes Container HTML element)
 function updateStorage() {
-    localStorage.setItem('city', searchBox.innerHTML);
+    localStorage.setItem('name', searchBox.innerHTML);
 }
 // console.log(searchBox.value);
-updateStorage();
-console.log(localStorage.getItem('city'));
+// updateStorage();
+console.log(localStorage.getItem('name'));
 
 
 // pulling specific data ('notes') from local storage (localStorage.getItem) with teh method .getItem, and assigning the HTML content of the notesContainer to it.   
-function showCity() {
-    // searchBox.innerHTML = localStorage.getItem('city');
-    console.log(searchBox.value);
-}
+// function showCity() {
+//     // searchBox.innerHTML = localStorage.getItem('city');
+//     console.log(data.name);
+// }
 
-showCity();
+// showCity();
 // ~~~~~ Local Storage End~~~~~~~~~
 
 // dark/light mode code 
