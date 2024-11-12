@@ -4,11 +4,30 @@ const apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q="
 // These came from the Open Weather API website. I signed up for a free account that includes a unique API key and access to their URLs.  I think this is the same one from 2 years ago, so I don't think these expire.  But if they do, on their website it had a really easy generate button.  
 // the URL is the weather search by city, but they have tons of options like by zip code or coordinates.  And then after the question mark are the parameters we wanna pass.  So one we want units to be metric, and at the end we leave 'q=' because of the later concatenation with the user's entered city.  
 
-
 // these are how we access the HTML. so searchBox access the user input, searchBtn is the button, and weatherIcon is the weather icon that like, shows the current conditions
 const searchBox = document.querySelector(".search input");
 const searchBtn = document.querySelector(".search button");
 const weatherIcon = document.querySelector(".weather-icon");
+
+// ~~~~~ Local Storage Start ~~~~~~~~~
+
+// for adding to local storage, setItem method accepts these two parameters: which key to set the value of ('notes') and what to set in that value (notesContainer.innerHTML, which is the contents of the Notes Container HTML element)
+function updateStorage() {
+    localStorage.setItem('city', searchBox.innerHTML);
+}
+// console.log(searchBox.value);
+updateStorage();
+console.log(localStorage.getItem('city'));
+
+
+// pulling specific data ('notes') from local storage (localStorage.getItem) with teh method .getItem, and assigning the HTML content of the notesContainer to it.   
+function showCity() {
+    // searchBox.innerHTML = localStorage.getItem('city');
+    console.log(searchBox.value);
+}
+
+showCity();
+// ~~~~~ Local Storage End~~~~~~~~~
 
 // dark/light mode code 
 var icon = document.getElementById("icon");
@@ -17,6 +36,7 @@ icon.onclick = function () {
     document.body.classList.toggle("dark-theme");
     if (document.body.classList.contains("dark-theme")) {
         icon.src = "icons/sun.png";
+        
     } else {
         icon.src = "icons/moon.png";
         
@@ -29,6 +49,8 @@ document.addEventListener("keydown", event => {
     if (event.key === "Enter") {
         checkWeather(searchBox.value);
         event.preventDefault();
+        updateStorage();
+
     }
 })
 
